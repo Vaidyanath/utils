@@ -1,26 +1,51 @@
-" enable syntax highlighting
-syntax enable
+" Vaidy Vimrc
+"
+:let mapleader = "."
 
-" show line numbers
-set number
+:nnoremap <leader>ch :set nohlsearch<cr>
+" :nnoremap <leader>| :vsplit<cr>
+" :nnoremap <leader>- :split<cr>
 
-" set tabs to have 4 spaces
-set ts=4
 
-" indent when moving to the next line while writing code
-set autoindent
+set nonumber
+set relativenumber
+colorscheme default
+syntax on
+filetype plugin indent on
 
-" expand tabs into spaces
-set expandtab
+set path+=**
+set wildmenu
 
-" when using the >> or << commands, shift lines by 4 spaces
-set shiftwidth=4
+command! MakeTags !sudo ctags -R .
+let g:netrw_liststyle = 3
+let g:netrw_banner = 0
+let g:netrw_browse_split = 4
+let g:netrw_altv = 1
+let g:netrw_winsize = 25
+augroup ProjectDrawer
+  autocmd!
+  autocmd VimEnter * :Vexplore
+augroup END
 
-" show a visual line under the cursor's current line
+set autoread
+au CursorHold * checktime
 set cursorline
+" set nocompatible
+set backspace=indent,eol,start
+set history=10000
+set showcmd
+set showmode
+set laststatus=2
+set ruler
+set wildmenu
+set tabpagemax=40
+set mouse=a
+set autoindent
+set tabstop=4
+set shiftwidth=4
+set expandtab
+set shiftwidth=2
+set incsearch
+set hlsearch
+set confirm
 
-" show the matching part of the pair for [] {} and ()
-set showmatch
-
-" enable all Python syntax highlighting features
-let python_highlight_all = 1
