@@ -19,10 +19,9 @@ set wildmenu
 command! MakeTags !sudo ctags -R .
 
 " Allow NerdTree as default
-autocmd vimenter * NERDTree
-map <C-n> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 autocmd VimEnter * NERDTree | wincmd p
+map <C-n> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
 " let g:netrw_liststyle = 3
 " let g:netrw_banner = 0
